@@ -27,6 +27,11 @@ Vormerken in `docs/umbau/LOESCHLISTE.md`, abgearbeitet beim Schluss-Aufräumen.
 | 14.11.2026 | Saubere Abspaltung von Everlast: kein `everlastpull`, Everlast nur Ideenquelle, Vergleich neuer Versionen manuell. Namensregel `amm-<name>` → `tg-<name>`. |
 | 14.11.2026 | Onboarding und Befüllen (P8, Durchspielen P9, Bau P7): Gerüst zuerst leer mit Platzhaltern, dann drei Wege nach Everlast. **Weg 1 Bestehende Quellen** (Standard für Tegards): Altbestand (P5), Dokumente, PDFs, optional die Website werden Station für Station neu eingearbeitet; der Agent nennt je Station die Quellen mit Pfad, liest sie, entwirft das Fach neu nach dem Gesamtkonzept, Markus gibt frei. Kein Import: `setup.py --kontext` (Kopieren an gleiche Pfade, Stationen sofort grün) wird ersetzt; es bleiben nur „Quellenliste je Station“ und die unveränderte Sicherung der Quellen. **Weg 2 URL/Website** und **Weg 3 Neue Marke** wie bei Everlast; Weg 1 nutzt für die Website denselben Baustein „Website auslesen“ (`references/website-lesen.md`). Ausnahme: Fertiges wird übernommen (z. B. Designsystem, Destillat laut P1). Grund gegen Import: anders gegliedert (kaum Pfadtreffer), alte Fehler würden übernommen (P5-Funde), grüne Stationen ohne Prüfung wären trügerisch. Folge P7: Setup ist macOS-only, Port nötig. |
 | 14.11.2026 | Git- und Commit-Regeln im Workspace nach Everlast (`.claude/rules/git-branches.md`), Bau P7: `develop` ist Arbeitsstand, Sessions committen, mergen und pushen dort selbstständig und enden mit Merge nach `develop` + Push. `main` nur per PR von `develop` (Was, Warum, Wie geprüft, Offen), Merge nur durch Markus. Push auf `main` und jeder Force-Push technisch gesperrt (`.claude/settings.json`). Conventional Commits, Arbeitsbranches `bereich/kurzname` (nach Merge löschen), Worktrees je paralleler Session, Brief in `inbox/` nach jedem Merge, Varianten über `varianten.ts`. Ergänzung Tegards: Security-Check als fester Schritt vor jedem Commit. Folge P6: globale Regel „Commit/Push nur auf Anweisung“ braucht eine Ausnahme für den Marketing-Workspace. |
+| 16.11.2026 | **Arbeitsregeln für Everlast-Aussagen (ganzer Umbau):** (1) Kein Satz über Everlast ohne eigenes Lesen in der laufenden Session mit Pfad:Zeile, Ungelesenes heißt „nicht gelesen“. (2) Unter jeder Empfehlung eine Zeile „Gelesen: …“. (3) Erst lesen, dann fragen: Vor jeder Grilling-Runde liest ein Subagent alle berührten Everlast-Dateien. (4) Codex-Review-Auftrag mit festem Punkt „jede Aussage über Everlast gegen die Datei prüfen“, ein falscher Beleg ist ein Fehler. (5) Everlast ist Referenz, nicht Grenze: neue Bausteine mit heutigem Fall, gekennzeichnet „neu, nicht Everlast“. (6) **Fixpunkt – ganzen Zusammenhang lesen:** Vor jeder Empfehlung zu einem Everlast-Baustein alle Vorkommen eines Begriffs, Felds oder Status workspace-weit lesen (Skills inkl. `assets/` und `references/`, Rules, Agenten, Commands, Steuerstand-Code), nicht nur die erste Fundstelle, und seine Rolle in der Gesamtarchitektur verstehen (wer schreibt, wer liest, welcher Ablauf). Erst dann empfehlen. Anlass: `entwurf`, stub/Freigabe, Prime-Leselisten und Cleanup-Kern zeigten ihre Bedeutung erst nach mehrfacher Nachfrage. |
+| 16.11.2026 | P2 Ort und Struktur: ein Wissensort in den Everlast-Fächern (kein eigenes `wiki/`), oben fest, darunter offen mit `index.md` je offenem Ordner. Produktlinie = Everlast-Dateien + `fakten.md`; `quellen/` an der Wurzel (Original und Extrakt unveränderlich). 9 Linien, flache Ordner. Personas A/B/C. Wettbewerber mit Profil + Beobachtungen. Ein Schreibort, andere Workspaces lesen nur. |
+| 16.11.2026 | P2 Faktenweg: Belegpflicht für technische und rechtlich heikle Werte (Seitenanker bzw. `original#anker`); Diff → Ja → Commit für `quellen/` und jeden belegpflichtigen Wert in jeder Datei, sonst `develop`-Fluss. Einziger Freigeber Markus. Python nur noch Extrakt-Skript, Prüfseite, Pre-Commit; Paket, Journal, Locks, Wächter usw. entfallen. `log.md`/`pruefungen.md` entfallen (Git-Log, „Offene Fragen“). `tg-konflikt-scan` unverändert + neu `tg-wissen-pruefen` (klein bei jeder Änderung; Vollprüfung nach 30 Tagen oder 10 Wissens-Commits, Brief + Steuerstand-Knopf, gegen Codex beibehalten). |
+| 16.11.2026 | P2 Kontext und Lernen: Agenten lesen selbst; `fakten.md` in die produktbezogenen Prime-Listen, Persona B in `prime-content`, Learnings-Leseregel im Agenten-Abschnitt „Context“. Frontmatter je Datei wie ihre Everlast-Vorlage, kein Einheitsschema, Tegards-Zusatzfelder kommen nur dazu (OKF-Felder gestrichen). Freigabe und Fortschritt 1:1 wie Everlast: `stub` fällt erst nach Freigabe, offen = `stub`/fehlt, `entwurf` = noch nicht freigegeben. `kern.md`-Import entfällt. Agent-Memory nur für Handwerk. Learnings: anhängen, ab 40 Zeilen zu „Gilt heute“ verdichten. Synthesen im Fach. Kein Debrief. |
+| 16.11.2026 | P2 Bausteine: `wissen/` eingefroren; Everlast-Abgleich bleibt der manuelle P1-Ablauf. Challenge wird übernommen (P9-Punkt „Challenge-Jury“ = ja). `workspace-cleanup` mit Kern unter `projekte/kern/`. `learn` → `tg-skill-aus-material` (faster-whisper CUDA, Bildabstand je Video abgefragt). Die 12 Quellen werden überführt (sha256), `marketing-wissen` geht an P3/P4. |
 
 ## Planungsthemen
 
@@ -34,14 +39,14 @@ Vormerken in `docs/umbau/LOESCHLISTE.md`, abgearbeitet beim Schluss-Aufräumen.
 |---|---|---|---|---|
 | P0 | Rahmen: Repo, STAND.md, Kontext-Schutz | 9 | – | fertig bis auf Kontext-Schutz-Bau (wartet auf OK) |
 | P1 | Landkarte-Fixes, Reviewer (juror.ts vs three-brain), Designsystem cloud/lokal, Medien (Higgsfield, OpenArt, Bibliothek) | 1, 10 | P0 | **fertig** 14.11.2026: `entscheidungen/01-reviewer-design-medien.md` (Codex-Review eingearbeitet); Landkarte aktualisiert |
-| P2 | Wiki-Architektur Best-of (feste Fächer vs LLM-gepflegt, Rückfluss in den Kontext, Learnings vs Synthese) | 2 | P0 | Dossier fertig (`dossiers/02-wiki-architektur.md`), Grilling offen |
+| P2 | Wiki-Architektur Best-of (feste Fächer vs LLM-gepflegt, Rückfluss in den Kontext, Learnings vs Synthese) | 2 | P0 | **fertig** 16.11.2026: `entscheidungen/02-wiki-architektur.md` (Codex-Review eingearbeitet, Streitfälle von Markus entschieden); 11 Zeilen in SPAETER.md |
 | P3 | Markengeführt × suchergebnisgeführt, SEO/GEO-Frische, Seitenschemas, Top-down/Bottom-up | 3 | P2 | offen |
 | P4 | Kanäle + Content-Fähigkeiten je Fähigkeit Everlast vs commerce-os | 4 | P3 | offen |
 | P5 | Altbestand-Triage: was wird noch gebraucht | 5 | – | Dossier fertig (`dossiers/05-altbestand.md`), Grilling offen |
 | P6 | agentic-os-Zukunft + Übertragung der Claude-Installation auf andere Rechner | 11 | – | Dossier fertig (`dossiers/06-agentic-os-und-rechneruebertragung.md`), Grilling offen |
 | P7 | Gerüst: Head, Agenten, Rules, Hooks, Commands, AGENTS/CLAUDE.md, Windows-Port | 7 | P1, P2, P4, P6, P9 | offen |
 | P8 | Onboarding + Befüllen Punkt für Punkt (simulierte Stationen). Grundsatz 14.11.: leeres Gerüst zuerst, dann drei Wege (1 Bestehende Quellen = Standard, 2 URL/Website, 3 Neue Marke); in Weg 1 ist Altbestand Quelle mit Pfad, wird je Station gelesen, neu entworfen und freigegeben, nicht importiert; Fertiges (z. B. Designsystem) wird übernommen | 6 | P7 | offen |
-| P9 | Everlast-Inventur und Durchspielen: Workflows, Pipelines (Spaltenlogik), Swipefile, Steuerstand, Skills, Rules, Commands, Prozesse; Inventarliste mit Status je Baustein (1:1 / anpassen / weglassen → SPAETER) + Durchspiel-Protokoll. Aus P1: Challenge-Jury ja/nein, Stück-Ordner vs. Kanalverträge/Steuerstand | Wunsch 13.11. | P0 | offen (überschneidet sich mit P8, Rohlesen über Subagenten) |
+| P9 | Everlast-Inventur und Durchspielen: Workflows, Pipelines (Spaltenlogik), Swipefile, Steuerstand, Skills, Rules, Commands, Prozesse; Inventarliste mit Status je Baustein (1:1 / anpassen / weglassen → SPAETER) + Durchspiel-Protokoll. Aus P1: Challenge-Jury (in P2 entschieden: ja, Details offen), Stück-Ordner vs. Kanalverträge/Steuerstand | Wunsch 13.11. | P0 | offen (überschneidet sich mit P8, Rohlesen über Subagenten) |
 
 Danach, in dieser Reihenfolge:
 1. **Planungsaudit (Markus)**: Wenn P1–P9 entschieden sind, lässt Markus sein eigenes Planungsaudit über alle
@@ -88,6 +93,7 @@ Offen aus Vorsession: <Liste>
 - Plugin agentic-os ist installiert auf 0.4.0; `d619148` (umfang, Ablauf-Wahl) ist gepusht, aber nicht installiert.
 - commerce-os ist doppelt registriert (zwei Marketplaces, zweimal im Projekt-Scope). Klären in P6.
 - Die Wiki-Python-Werkzeuge (Frage W-00 in P5) entscheiden über rund 30 Zeilen in SPAETER. Klären in P2.
+  **Erledigt 16.11.:** P2 B1, 22 Zeilen erledigt, 6 auf SPAETER, 2 an P7.
 - Windows: bun, higgsfield und ffmpeg fehlen; bildgen braucht `sips`. Einplanen in P7.
   Nach P1 (14.11.): Higgsfield und `bildgen` entfallen (SPAETER); offen bleiben Bun (Test in P7) und `ffmpeg`.
 - P5-Subagent hat 20 Zeilen von `E:\tegards\sandbox\secret-scan-vorschlag.md` gelesen (Regelverstoß, laut Bericht nur
@@ -106,4 +112,20 @@ Offen aus Vorsession:
 - P6: globale CLAUDE.md-Regel zu three-brain umstellen; stehende Wahl nur noch für Bau-Reviews; ~/.codex/config.toml; Bun in die Rechner-Übertragung.
 - P7: Bun-Test (codex.cmd, Bun.serve); Bau-Rubrik; Juror --out und Effort je Rubrik; Generator-Vorschauen + _blob-Zuordnung; ANLEITUNG-Zeile; tg-openart; inbox/-Pfad; Web-Fassung/IPTC/ffmpeg; .gitignore; CLI-endFrame; Umbenennung amm- → tg-.
 - P9: Challenge-Jury ja/nein; Stück-Ordner gegen Kanalverträge und Steuerstand-Karte.
+```
+
+## Handoff P2 (16.11.2026)
+
+```
+Session: P2 Wiki-Architektur (abgeschlossen)
+Lies: docs/umbau/STAND.md, docs/umbau/entscheidungen/02-wiki-architektur.md
+Ziel der Session: Wissensort, Faktenweg, Rückfluss in den Kontext und Lernen aus Arbeit entscheiden – erledigt, Codex-Review (gpt-6-astra, xhigh, 20 Befunde) eingearbeitet, Streitfälle 17–20 von Markus entschieden.
+Ergebnis: entscheidungen/02-wiki-architektur.md, Zeilen in SPAETER.md, STAND.md (feste Entscheidungen inkl. Arbeitsregeln, P2, Querbefund W-00), Review-Dateien unter reviews/p2/ (auf der Löschliste).
+Offen aus Vorsession:
+- P3: SERP-Analysen; SEO/GEO-Dateien aus marketing-wissen.
+- P4: Redaktionsstil und Content-Inventar aus marketing-wissen; welche Learnings-Dateien je Fach.
+- P6: Agent-Memory nicht übertragen; ffmpeg, yt-dlp, uv, faster-whisper, CUDA in die Übertragungsliste.
+- P7: Extrakt-Skript, Prüfseite, Pre-Commit (+ W-21, W-32); B2-Ausnahme in der Git-Rule; tg-wissen-pruefen mit Fristen-Referenz, Brief und Knopf „Wissen prüfen“; --tief im Konflikt-Scan korrigieren; Seitenanker vs. source; fakten.md/Persona B in die Prime-Listen, Learnings-Regel in „Context“; oberkategorie; Steuerstand für mehrere Linien + Handbuch (Everlast-Playbook erweitert); Destillat-Sätze an sechs Stellen, struktur.md:77; Cleanup-Port mit projekte/kern/; tg-skill-aus-material.
+- P8: 12 Quellen überführen, Terrawin neu; 9 Linien, Personas A/B/C; fakten.md je Linie neu; kern.md → stammdaten/unternehmen.md.
+- P9: Challenge-Details; Backlog/Pipeline für Absichten; learn-Inventurzeile; manuellen Everlast-Abgleich mit der Inventur verbinden.
 ```
