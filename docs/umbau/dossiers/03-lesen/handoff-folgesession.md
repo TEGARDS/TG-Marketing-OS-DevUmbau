@@ -143,5 +143,6 @@ Neu einzutragen, je mit Auslöser:
   `*.key`.
 - Kein Satz über Everlast ohne eigenes Lesen mit Pfad und Zeile; „Gelesen:“-Zeile unter jeder Empfehlung.
 - Reviews macht Codex, nicht die eigene Session.
-- Uncommittet im Arbeitsverzeichnis: `SPAETER.md` (geändert), `docs/umbau/dossiers/03-marke-serp-seo-geo.md` und der
-  Ordner `docs/umbau/dossiers/03-lesen/` (neu).
+- Der Stand nach dem Grilling ist committet (`d310cea` auf `main`, 17.11.2026, nicht gepusht): `SPAETER.md`, das Dossier
+  und der Ordner `docs/umbau/dossiers/03-lesen/`. Das Ergebnis der Folgesession wird getrennt committet, nach Markus’ Ja;
+  den Commit an jedem Sicherungspunkt aktiv vorschlagen.
