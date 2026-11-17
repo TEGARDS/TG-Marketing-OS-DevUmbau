@@ -17,7 +17,7 @@ Vormerken in `docs/umbau/LOESCHLISTE.md`, abgearbeitet beim Schluss-Aufräumen.
 |---|---|
 | 13.11.2026 | Grobplan der Landkarte gilt. Ablauf gibt Markus vor; Modus gründlich. |
 | 13.11.2026 | Lizenz geklärt (Verantwortung Markus): Everlast-Dateien dürfen übernommen und angepasst werden. |
-| 13.11.2026 | Head of Marketing + Fachagenten 1:1 nach Everlast. |
+| 13.11.2026 | Head of Marketing + Fachagenten 1:1 nach Everlast. **Gelockert am 17.11.2026 (P3 A3):** Die Zahl der Fachagenten ist nicht auf sechs begrenzt, siehe Zeile „P3 Grundsätze“. |
 | 13.11.2026 | Branch `skill-format` in agentic-os pausiert bis P6. |
 | 13.11.2026 | Planung je Thema: Dossier → Grilling → Entscheidungsdatei → Codex-Review → Handoff. |
 | 13.11.2026 | Querschnitt: kein Overengineering; Zukunftsfälle auf `SPAETER.md`. |
@@ -32,6 +32,11 @@ Vormerken in `docs/umbau/LOESCHLISTE.md`, abgearbeitet beim Schluss-Aufräumen.
 | 16.11.2026 | P2 Faktenweg: Belegpflicht für technische und rechtlich heikle Werte (Seitenanker bzw. `original#anker`); Diff → Ja → Commit für `quellen/` und jeden belegpflichtigen Wert in jeder Datei, sonst `develop`-Fluss. Einziger Freigeber Markus. Python nur noch Extrakt-Skript, Prüfseite, Pre-Commit; Paket, Journal, Locks, Wächter usw. entfallen. `log.md`/`pruefungen.md` entfallen (Git-Log, „Offene Fragen“). `tg-konflikt-scan` unverändert + neu `tg-wissen-pruefen` (klein bei jeder Änderung; Vollprüfung nach 30 Tagen oder 10 Wissens-Commits, Brief + Steuerstand-Knopf, gegen Codex beibehalten). |
 | 16.11.2026 | P2 Kontext und Lernen: Agenten lesen selbst; `fakten.md` in die produktbezogenen Prime-Listen, Persona B in `prime-content`, Learnings-Leseregel im Agenten-Abschnitt „Context“. Frontmatter je Datei wie ihre Everlast-Vorlage, kein Einheitsschema, Tegards-Zusatzfelder kommen nur dazu (OKF-Felder gestrichen). Freigabe und Fortschritt 1:1 wie Everlast: `stub` fällt erst nach Freigabe, offen = `stub`/fehlt, `entwurf` = noch nicht freigegeben. `kern.md`-Import entfällt. Agent-Memory nur für Handwerk. Learnings: anhängen, ab 40 Zeilen zu „Gilt heute“ verdichten. Synthesen im Fach. Kein Debrief. |
 | 16.11.2026 | P2 Bausteine: `wissen/` eingefroren; Everlast-Abgleich bleibt der manuelle P1-Ablauf. Challenge wird übernommen (P9-Punkt „Challenge-Jury“ = ja). `workspace-cleanup` mit Kern unter `projekte/kern/`. `learn` → `tg-skill-aus-material` (faster-whisper CUDA, Bildabstand je Video abgefragt). Die 12 Quellen werden überführt (sha256), `marketing-wissen` geht an P3/P4. |
+| 17.11.2026 | **P3 Grundsätze:** (1) Arbeitsteilung: Die Marke setzt Verkaufsargumente, Personas, Ton, Themenfelder, Verbote und Fakten; die Suche entscheidet über Seite, Seitenart, Pflichtthemen, Fragen und Wortlaut; Treffpunkt ist der Sektionsplan. Verkaufsargumente und Fakten kommen nie aus den Suchergebnissen. Rangfolge bei Konflikt: Fakten, Recht und Verbote, dann Marke, dann Suche. (2) **Grundsatz von Markus:** Was bei Everlast funktioniert, kommt mit und wird nur auf das Shopsystem angepasst, kein Umbau ohne Not. (3) **Agenten-Regel gelockert:** Ein weiterer Fachagent darf vorgeschlagen werden, wenn er Sinn ergibt (Maßstab: eigenes Handwerk, eigene Werkzeuge, scharfe Grenze); nichts Unnötiges. Für die Suchergebnis-Analyse kommt keiner. (4) Begriffe: „Säule“ = Themenfeld der Marke (`pillar`), „Landingpage“ = Seitenart, „Leitseite“ = Rolle der Hauptseite einer Linie, „Hauptbegriff und Unterfragen“ = Keyword-Cluster. |
+| 17.11.2026 | P3 Suchwissen: Search Console, DataForSEO (`dfs`, Kostendeckel je Lauf) und Suggest; „Vergleichbarkeit, nicht Wahrheit“. Ein Keyword-Set `strategie/positionierung/keyword-set.md` mit Abschnitt je Linie (Suchbegriff, Absicht, genau eine Zielseite, Status, Volumen, Herkunft mit Datum). Themenplan je Linie vor dem Seitenbau, von Markus freigegeben; kein Entscheidungsbaum, keine Schwellen; Rollen `zielseite`/`shop-seite` und Familien-Regel bleiben. Ein Regelwerk für alle Linien; Bestandsaufnahme der Domain einmal je Markt (AT, DE); Reihenfolge Glasschiebewände, Verdeca, Lamellendächer. Neuer Skill `tg-serp-analyse` (Ebenen Linie und Seite, Ablage datiert unter `daten/`, vier Abnehmer, Seiten-Ebene 30 Tage wiederverwendbar, Linien-Ebene bei Auslöser, spätestens nach sechs Monaten). Säulen quer zu den Linien, höchstens fünf, Station 15. |
+| 17.11.2026 | P3 Seitenaufbau: Seiten aus den Bausteinen des Designsystems, Auswahl und Folge beweglich (Kaufbremsen, drei Tests, Suchergebnisse); je Pflichtthema eine Abgleichzeile; Markus gibt den Sektionsplan vor dem Text frei; commerce-os-Templates entfallen. Leitseite: zwei freie Varianten, eine darf über das Designsystem hinausgehen. Übrige Seitenarten: je ein neu hergeleitetes Gerüst mit zwei festen Stellen (Arbeit P4), Hornbach als Vorbild für Ratgeber und Anleitung. `seitenvorlagen.md` ist Bestand, keine Vorlage; Glasschiebewände Deluxe und Verdeca werden neu gebaut (vorher Bewertung „muss bleiben“, Zahlen festhalten, Adresse und Hauptbegriff bleiben). Markup nur, wo Google es anzeigt oder das Plugin es liefert. |
+| 17.11.2026 | P3 GEO, Frische, Bausteine: drei Schreibregeln ohne Zahlenvorgaben, kein `llms.txt`; Prüfung über den Codex-Prüfweg (P1), GEO-Punkte in der Inhaltsrubrik; Messung in drei Stufen; Such- und Trainingscrawler zugelassen (`kanaele/websites.md`); Off-Page bleibt Handarbeit. Ein Ort je Regel (`tg-seo`, Quelle und Abrufdatum), monatlicher Regel-Check gleich mit dem Workspace; Komplett-Audit einmal im Quartal; zwei Loops als Fixpunkte. Angepasst kommen mit: `tg-seo`, `tg-keyword-research`, `/seo-komplett-audit`, `tg-seo-audit`, `tg-seo-content`; ein Aufbau für Ratgeber und Anleitung (`tg-blog` und `tg-seo-content`). Aus dem alten SEO-Wissensordner wird nichts übertragen (ersetzt P2 F2 für den P3-Teil; Ausnahme Zeichenlängen als Hausregel). Produktdatenquelle der Bildprüfung: `fakten.md` der Linie. |
+| 17.11.2026 | **Neuer Schritt nach P9, vor dem Planungsaudit (Markus, P3 X1):** Abgleich auf Datei- und Code-Ebene. Jeder Skill, Agent, Command, jede Datei, Funktion und Logik von Everlast wird geprüft, ob es bei Tegards ein Gegenstück oder einen vergleichbaren Ansatz gibt. P9 liefert dafür die Inventarliste; die Funde kommen vor dem Audit in die Entscheidungsdateien. Vorgehen siehe nächste Zeile. |
 
 ## Planungsthemen
 
@@ -40,7 +45,7 @@ Vormerken in `docs/umbau/LOESCHLISTE.md`, abgearbeitet beim Schluss-Aufräumen.
 | P0 | Rahmen: Repo, STAND.md, Kontext-Schutz | 9 | – | fertig bis auf Kontext-Schutz-Bau (wartet auf OK) |
 | P1 | Landkarte-Fixes, Reviewer (juror.ts vs three-brain), Designsystem cloud/lokal, Medien (Higgsfield, OpenArt, Bibliothek) | 1, 10 | P0 | **fertig** 14.11.2026: `entscheidungen/01-reviewer-design-medien.md` (Codex-Review eingearbeitet); Landkarte aktualisiert |
 | P2 | Wiki-Architektur Best-of (feste Fächer vs LLM-gepflegt, Rückfluss in den Kontext, Learnings vs Synthese) | 2 | P0 | **fertig** 16.11.2026: `entscheidungen/02-wiki-architektur.md` (Codex-Review eingearbeitet, Streitfälle von Markus entschieden); 11 Zeilen in SPAETER.md |
-| P3 | Markengeführt × suchergebnisgeführt, SEO/GEO-Frische, Seitenschemas, Top-down/Bottom-up | 3 | P2 | offen |
+| P3 | Markengeführt × suchergebnisgeführt, SEO/GEO-Frische, Seitenschemas, Top-down/Bottom-up | 3 | P2 | **fertig** 17.11.2026: `entscheidungen/03-marke-serp-seo-geo.md` (Codex-Review eingearbeitet, Befund 2 und Lage des Schluss-Schritts von Markus entschieden); 9 Zeilen in SPAETER.md |
 | P4 | Kanäle + Content-Fähigkeiten je Fähigkeit Everlast vs commerce-os | 4 | P3 | offen |
 | P5 | Altbestand-Triage: was wird noch gebraucht | 5 | – | Dossier fertig (`dossiers/05-altbestand.md`), Grilling offen |
 | P6 | agentic-os-Zukunft + Übertragung der Claude-Installation auf andere Rechner | 11 | – | Dossier fertig (`dossiers/06-agentic-os-und-rechneruebertragung.md`), Grilling offen |
@@ -49,10 +54,14 @@ Vormerken in `docs/umbau/LOESCHLISTE.md`, abgearbeitet beim Schluss-Aufräumen.
 | P9 | Everlast-Inventur und Durchspielen: Workflows, Pipelines (Spaltenlogik), Swipefile, Steuerstand, Skills, Rules, Commands, Prozesse; Inventarliste mit Status je Baustein (1:1 / anpassen / weglassen → SPAETER) + Durchspiel-Protokoll. Aus P1: Challenge-Jury (in P2 entschieden: ja, Details offen), Stück-Ordner vs. Kanalverträge/Steuerstand | Wunsch 13.11. | P0 | offen (überschneidet sich mit P8, Rohlesen über Subagenten) |
 
 Danach, in dieser Reihenfolge:
-1. **Planungsaudit (Markus)**: Wenn P1–P9 entschieden sind, lässt Markus sein eigenes Planungsaudit über alle
+1. **Abgleich auf Datei- und Code-Ebene (Markus, 17.11.2026, P3 X1)**: Wenn P1–P9 entschieden sind, wird jeder Skill, Agent,
+   Command, jede Datei, Funktion und Logik von Everlast geprüft, ob es bei Tegards ein Gegenstück oder einen vergleichbaren
+   Ansatz gibt. Grundlage ist die Inventarliste aus P9; der Abgleich geht eine Ebene tiefer und in die Gegenrichtung.
+   Funde werden in die Entscheidungsdateien eingearbeitet.
+2. **Planungsaudit (Markus)**: Danach lässt Markus sein eigenes Planungsaudit über alle
    Entscheidungsdateien und STAND.md laufen. Befunde werden eingearbeitet, erst dann beginnen die Specs.
    Das Audit liefert Markus zu diesem Zeitpunkt.
-2. Specs und Arbeitspakete (Planungsmodus für die Freigabe der Paketliste), Abhängigkeitsprüfung, Umsetzung in Sessions mit getrennten Dateibereichen,
+3. Specs und Arbeitspakete (Planungsmodus für die Freigabe der Paketliste), Abhängigkeitsprüfung, Umsetzung in Sessions mit getrennten Dateibereichen,
 zum Schluss Aufräumen der OS-Familie.
 
 ## Offene Fragen
@@ -128,4 +137,18 @@ Offen aus Vorsession:
 - P7: Extrakt-Skript, Prüfseite, Pre-Commit (+ W-21, W-32); B2-Ausnahme in der Git-Rule; tg-wissen-pruefen mit Fristen-Referenz, Brief und Knopf „Wissen prüfen“; --tief im Konflikt-Scan korrigieren; Seitenanker vs. source; fakten.md/Persona B in die Prime-Listen, Learnings-Regel in „Context“; oberkategorie; Steuerstand für mehrere Linien + Handbuch (Everlast-Playbook erweitert); Destillat-Sätze an sechs Stellen, struktur.md:77; Cleanup-Port mit projekte/kern/; tg-skill-aus-material.
 - P8: 12 Quellen überführen, Terrawin neu; 9 Linien, Personas A/B/C; fakten.md je Linie neu; kern.md → stammdaten/unternehmen.md.
 - P9: Challenge-Details; Backlog/Pipeline für Absichten; learn-Inventurzeile; manuellen Everlast-Abgleich mit der Inventur verbinden.
+```
+
+## Handoff P3 (17.11.2026)
+
+```
+Session: P3 Marke, Suche, SEO und GEO (abgeschlossen)
+Lies: docs/umbau/STAND.md, docs/umbau/entscheidungen/03-marke-serp-seo-geo.md
+Ziel der Session: Verhältnis von Marke und Suche, Suchwissen, Seitenaufbau, GEO, Frische und SEO-Bausteine entscheiden – erledigt, Codex-Review (gpt-6-astra, xhigh, 10 Befunde) eingearbeitet, Befund 2 und die Lage des Schluss-Schritts von Markus entschieden.
+Ergebnis: entscheidungen/03-marke-serp-seo-geo.md, Zeilen in SPAETER.md, STAND.md (feste Entscheidungen inkl. gelockerter Agenten-Regel und Everlast-Grundsatz, P3, neuer Schritt „Abgleich auf Datei- und Code-Ebene“), Review-Dateien unter reviews/p3/ (auf der Löschliste).
+Offen aus Vorsession:
+- P4: Gerüst je Seitenart (Kategorie, Produkt, Ratgeber, Anleitung, Projekt) mit zwei festen Stellen, ein Gerüst für Ratgeber und Anleitung; Hornbach-Abgleich (liegt vor) einarbeiten; Varianten-Lauf der Leitseite und Weg eines neuen Bausteins ins Designsystem; Bilder (Bildliste, zwei Stufen, Alt-Text, „Belegte Motive“); Rückmeldung vom Markt (Analytics, Google Ads, Facebook) bei Everlast nachlesen; ob amm-video-zu-blog und amm-pillar-to-blog kommen, Transkript-Modus; Live-Daten aus dem Shop; amm-new-product auf Linien anpassen (drei Zusätze); Wortzahl-Regel oberhalb der Produktliste prüfen; GEO-Punkte in die Inhaltsrubriken.
+- P7: dfs und gsc unter Windows, Österreich ergänzen; Höhe des Kostendeckels; Erinnerung ans Quartals-Audit; Träger für drei Loops; Rendering-Messpunkt über Firecrawl; ein Berichtsort für Audits, ein Pfad fürs Keyword-Set; Wortzahl des Antwortblocks aus Skills und pruefe_artikel.py nehmen; tg-seo auf Shop umschreiben mit Meta-Block-Schritt; Steuerstand zeigt Keyword-Set und Themenplan je Linie.
+- P8: Station 15 (Säulen); kanaele/websites.md mit Bestand und Crawler-Eintrag; DataForSEO-Konto durch Markus; Bestandsaufnahme der Domain je Markt; Bewertung „muss bleiben“ vor dem Neubau einer bestehenden Seite.
+- P9: Inventarzeile je SEO-Baustein; Swipefile-Fach landingpages/; ob der Head das Anlegen einer Linie auslöst; wann der Wochen-Loop eingeplant wird; Inventur als Grundlage des Abgleichs auf Datei- und Code-Ebene.
 ```
